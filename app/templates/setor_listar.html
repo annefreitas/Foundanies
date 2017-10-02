@@ -1,0 +1,104 @@
+{% extends "header.html" %}
+
+{% block styles %}
+    <link href="{{url_for('static', filename='setor_listar_style.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row mx-auto" id="my-buttons">
+              <div class="col-md-4">
+                <a href="{{url_for('setor_criar')}}"><button class="round-button button1">ADICIONAR SETOR</button></a>
+              </div>
+              <div class="col-md-4">
+                <button type="submit" id="editar-button" class="round-button button2">EDITAR SETOR</button>
+              </div>
+              <div class="col-md-4">
+                <form method="post" id="remover-form" action="{{url_for('setor_desativar')}}">
+                  <button type="submit" name="origem" value="listar" class="round-button button3">REMOVER SETOR</button>
+                </form>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-table">
+      <div class="col-md-12" id="central-content">
+          <table class="table table-bordered table-hover table-condensed">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Código</th>
+                            <th>Nome do Setor</th>
+                            <th>Situação</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <!-- Dados estáticos, insira dados do back-end aqui -->
+                         {%for setor in setores %}
+                        <tr data-setor-id="{{setor.id}}">
+                            <td><input type="checkbox"></td>
+                            <td>{{setor.id}}</td>
+                            <td>{{setor.nome}}</td>
+                            <td>{{setor.situacao}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+          </table>
+      </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        // Espera o documento ser carregado completamente
+        $(document).ready(function(){
+
+            $("#editar-button").click(function(){
+                var id = $("tr > td > input:checked").parent().parent().first().data("setorId");
+
+                if(id != undefined)
+                    window.location.href = "setor/" + id;
+            });
+
+            // Ajusta a largura da coluna de checkboxes
+            $("thead > tr > th").first().css("width","25px");
+
+            // Impede o clique do input de espalhar o clique para seus pais (a linha da tabela)
+            $("td > input").parent().click(function(e){
+                e.stopPropagation();
+            });
+
+            // Quando clicar em uma linha de alguma tabela
+            $("tbody > tr").click(function(){
+                // Recupera o primeiro td dentro do tr clicado e pega seu texto (id do funcionário)
+                var id_funcionario = $(this).data("funcionarioId");
+
+                // Redireciona para a tela adequada
+                window.location.href="setor/" + id_funcionario;
+            });
+
+            // Antes do form do botão de remover ser submetido
+            $("#remover-form").on("submit", function(e){
+                var form = $(this);
+
+                var i = 0;
+                // Seleciona todos os tr que têm um filho input checkbox selecionado
+                $("td > input:checked").parent().parent().each(function(){
+
+                    // Para cada linha, adiciona um input escondido no form como um id em um vetor de ids
+                    form.append($("<input>").attr("type","hidden").attr("name","ids[]").val($(this).data("setorId")));
+                    i++;
+                });
+
+                if(i==0) e.preventDefault();
+
+            });
+        });
+    </script>
+
+    <!-- End sction -->
+{% endblock %}
