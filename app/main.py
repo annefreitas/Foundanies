@@ -77,17 +77,13 @@ def admin_home():
     return render_template('admin_home.html')
 
 
-@app.route('/home')
-def home():
-    return render_template('home.html')
-
 @app.route('/usuario')
 def usuario_listar():
     usuarios = db.get_usuarios()
     return render_template('usuario_listar.html', usuarios=usuarios)
 
 
-@app.route('/usuario/novo', methods=['GET', 'POST'])
+@app.route('/cadastrar', methods=['GET', 'POST'])
 def usuario_criar():
     form = CadastraUsuarioForm()
     if form.validate_on_submit():
