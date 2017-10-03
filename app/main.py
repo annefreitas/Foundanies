@@ -52,6 +52,8 @@ def login():
                 return redirect(url_for('admin'))
             flash("Usuario já logado!")
 
+
+
         else:
             flash("Nome de usuário ou senha incorretos")
     else:
