@@ -79,6 +79,8 @@ def admin_home():
 @app.route('/usuario')
 def usuario_listar():
     usuarios = db.get_usuarios()
+    if (session['user_login'] == ""):
+        return redirect(url_for('index'))
     return render_template('usuario_listar.html', usuarios=usuarios)
 
 
