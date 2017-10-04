@@ -37,16 +37,12 @@ def login():
         session['user_login'] = form.login.data
         senha = form.senha.data
         senhaHash = Criptografador.gerar_hash(senha, '')
-
         ans = db.verifica_login(login=form.login.data, senha=senhaHash)
         if ans:
             if (not db.verifica_logado(login=form.login.data)):
                 db.set_logado_true(login=form.login.data)
                 return redirect(url_for('admin_home'))
             return redirect(url_for('admin_home'))
-
-
-
         else:
             flash("Nome de usuário ou senha incorretos")
     else:
@@ -60,7 +56,7 @@ def logout():
     session.pop('username', None)
     user_login = session.get('user_login', None)
     session['user_login'] = ''
-    # db.set_logado_false(user_login)
+    db.set_logado_false(user_login)
     return redirect(url_for('index'))
 
 
@@ -94,7 +90,7 @@ def usuario_criar():
 
         db.cadastra_usuario(usuario)
 
-        return redirect(url_for('admin_home'))
+        return redirect(url_for('login'))
     else:
         flash_errors(form)
         return render_template('usuario_criar.html', form=form)
