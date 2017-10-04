@@ -1,10 +1,11 @@
 class Usuario:
     def __init__(self,
                  id=0,
+                 nome="paca",
                  login="none",
                  senha="none",
-                 logado=1,
-                 nome="paca"):
+                 logado=1
+                 ):
                    self.id = id
                    self.login = login
                    self.senha = senha
@@ -15,8 +16,8 @@ class Usuario:
     def serializa(self):
         return {
                 "id": self.id,
+                "nome": self.nome,
                 "login": self.login,
                 "senha": self.senha,
-                "logado": self.logado,
-                  "nome": self.nome,
+                "logado": self.logado
                 }

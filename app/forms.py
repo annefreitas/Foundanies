@@ -14,14 +14,14 @@ class LoginForm(Form):
 
 # Cadastra Usuario
 class CadastraUsuarioForm(Form):
-    usuario_nome = StringField('Login Usuario', validators=[DataRequired('Nome de Usuário é obrigatório')])
+    usuario_nome = StringField('Nome Usuario', validators=[DataRequired('Nome de Usuário é obrigatório')])
     usuario_login = StringField('Login Usuario', validators=[DataRequired('Login do Usuario é obrigatório')])
     usuario_senha = PasswordField('Senha', validators=[DataRequired('Senha do Usuario é obrigatório')])
 
 
 # Atualiza Usuário
 class AtualizaUsuarioForm(Form):
-    usuario_nome  = StringField('Login do Usuário', validators=[])
+    usuario_nome  = StringField('Nome do Usuário', validators=[])
     usuario_login = StringField('Login do Usuário', validators=[DataRequired('Login do Usuário é obrigatório')])
     usuario_id = HiddenField('ID Usuário', validators=[DataRequired('O ID do Usuário não pode ser indefinido')])
     usuario_senha = PasswordField('Senha do Usuário', validators=[DataRequired('A senha do Usuário é obrigatória')])

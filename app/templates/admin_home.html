@@ -9,13 +9,16 @@
         <div class="row">
             <div class="col-md-12" id="fundo-branco">
 			<div class="col-md-1">
-				<img src="mene.jpg">
+				<img src="https://i.imgur.com/BZ56eUI.png">
 			</div>
-				<h4>NOME: Hue BR da Silva Zueiro</h4>
-                <h4>FUNÇÃO: Administrador</h4>
-            </div>
-            <div class="col-md-12" id="center">
-                <a href="{{url_for('usuario_listar')}}"><button class="round-button">USUÁRIO</button></a>
+				<tbody>
+
+                        {% for usuario in usuarios %}
+                        <tr data-usuario-id="{{usuario.id}}">
+                           <h4>NOME:{{usuario.nome}}</h4>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
             </div>
         </div>
     </div>

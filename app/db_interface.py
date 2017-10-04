@@ -55,10 +55,11 @@ class Zelda:
         for u in data:
             usuario = Usuario(
                 id=u["usuario_id"],
+                nome=u["usuario_nome"],
                 login=u["usuario_login"],
                 senha=u["usuario_senha"],
-                logado=u["usuario_logado"],
-                nome=u["usuario_nome"])
+                logado=u["usuario_logado"]
+                )
             usuarios.append(usuario)
         return usuarios
 
@@ -69,10 +70,11 @@ class Zelda:
         for u in data:
             usuario = Usuario(
                 id=u["usuario_id"],
+                nome=u["usuario_nome"],
                 login=u["usuario_login"],
                 senha=u["usuario_senha"],
-                logado=u["usuario_logado"],
-                nome=u["usuario_nome"])
+                logado=u["usuario_logado"]
+                )
             usuarios.append(usuario)
         return usuarios
 
@@ -104,10 +106,11 @@ class Zelda:
         for d in data:
             usuario = Usuario(
                           id=d["usuario_id"],
+                          nome=d["usuario_nome"],
                           login=d["usuario_login"],
                           senha=d["usuario_senha"],
-                          logado=d["usuario_logado"],
-                            nome=d["usuario_nome"])
+                          logado=d["usuario_logado"]
+                            )
             usuarios.append(usuario)
         return usuarios
 
@@ -119,9 +122,10 @@ class Zelda:
         for d in data:
             usuario = Usuario(
                 id=d["usuario_id"],
+                nome=d["usuario_nome"],
                 login=d["usuario_login"],
                 senha=d["usuario_senha"],
-                logado=d["usuario_logado"],
-                nome = d["usuario_nome"])
+                logado=d["usuario_logado"]
+                )
             usuarios.append(usuario)
         return usuarios[0]
