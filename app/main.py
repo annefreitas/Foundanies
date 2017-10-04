@@ -6,9 +6,6 @@ from .forms import *
 from .classes import Criptografador
 from flask_mysqldb import MySQL
 from .db_interface import Zelda
-from .funcionario import Funcionario
-from .setor import Setor
-from .lotacao import Lotacao
 from .usuario import Usuario
 
 from app import app
@@ -18,7 +15,7 @@ from app import app
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'zelda'
+app.config['MYSQL_DB'] = 'foundanies'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # init MYSQL
 db = Zelda(app)
@@ -49,7 +46,7 @@ def login():
         if ans:
             if (not db.verifica_logado(login=form.login.data)):
                 db.set_logado_true(login=form.login.data)
-                return redirect(url_for('admin'))
+                return redirect(url_for('cadastrar'))
             flash("Usuario já logado!")
 
 
@@ -112,6 +109,7 @@ def usuario_editar(user_id):
         usuario.login = form.usuario_login.data
         usuario.id = form.usuario_id.data
         usuario.senha = Criptografador.gerar_hash(form.usuario_senha.data, '')
+       # usuario.nome = form.usuario_nome.data
 
         db.edita_usuario(usuario)
 

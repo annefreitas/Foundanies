@@ -1,8 +1,6 @@
 from flask_mysqldb import MySQL
-from .funcionario import Funcionario
-from .setor import Setor
 from .usuario import Usuario
-from .lotacao import Lotacao
+
 
 
 class Zelda:
@@ -49,7 +47,7 @@ class Zelda:
 
     # CRUD - USUARIO
     def cadastra_usuario(self, usuario):
-        self.execute_query("insert into usuario (usuario_login, usuario_senha, usuario_logado) values ('{}', '{}', '{}')".format(usuario.login, usuario.senha, usuario.logado), True)
+        self.execute_query("insert into usuario (usuario_nome,usuario_login, usuario_senha, usuario_logado) values ('{}', '{}', '{}','{}')".format(usuario.nome,usuario.login, usuario.senha, usuario.logado), True)
 
     def get_usuarios(self):
         data = self.execute_query("select * from usuario")
@@ -60,7 +58,7 @@ class Zelda:
                 login=u["usuario_login"],
                 senha=u["usuario_senha"],
                 logado=u["usuario_logado"],
-                admin=u["usuario_admin"])
+                nome=u["usuario_nome"])
             usuarios.append(usuario)
         return usuarios
 
@@ -74,7 +72,7 @@ class Zelda:
                 login=u["usuario_login"],
                 senha=u["usuario_senha"],
                 logado=u["usuario_logado"],
-                admin=u["usuario_admin"])
+                nome=u["usuario_nome"])
             usuarios.append(usuario)
         return usuarios
 
@@ -87,7 +85,7 @@ class Zelda:
                 login=u["usuario_login"],
                 senha=u["usuario_senha"],
                 logado=u["usuario_logado"],
-                admin=u["usuario_admin"])
+                nome=u["usuario_nome"])
             usuarios.append(usuario)
         return usuarios
 
@@ -108,7 +106,8 @@ class Zelda:
                           id=d["usuario_id"],
                           login=d["usuario_login"],
                           senha=d["usuario_senha"],
-                          logado=d["usuario_logado"])
+                          logado=d["usuario_logado"],
+                            nome=d["usuario_nome"])
             usuarios.append(usuario)
         return usuarios
 
@@ -122,6 +121,7 @@ class Zelda:
                 id=d["usuario_id"],
                 login=d["usuario_login"],
                 senha=d["usuario_senha"],
-                logado=d["usuario_logado"])
+                logado=d["usuario_logado"],
+                nome = d["usuario_nome"])
             usuarios.append(usuario)
         return usuarios[0]

@@ -14,7 +14,7 @@ class LoginForm(Form):
 
 # Cadastra Usuario
 class CadastraUsuarioForm(Form):
-    usuario_nome = StringField('Login Usuario', validators=[])
+    usuario_nome = StringField('Login Usuario', validators=[DataRequired('Nome de Usuário é obrigatório')])
     usuario_login = StringField('Login Usuario', validators=[DataRequired('Login do Usuario é obrigatório')])
     usuario_senha = PasswordField('Senha', validators=[DataRequired('Senha do Usuario é obrigatório')])
 
