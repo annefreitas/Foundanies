@@ -3,7 +3,7 @@ from .usuario import Usuario
 
 
 
-class Zelda:
+class foundanies:
 
     def __init__(self, app):
         self.mysql = MySQL(app)

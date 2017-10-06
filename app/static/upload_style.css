@@ -17,17 +17,17 @@ html, body {
 #central-content {
     position: relative;
     /*Uma margem de 50% da altura do elemento pai*/
-    top: 50%;
+    top: 10%;
     /*Desloca a posição do elemento 50% de sua altura para cima (dando o efeito de centralização)*/
-    transform: translateY(-50%);
+    transform: translateY(10%);
 }
 
 #central-contentup {
     position: relative;
     /*Uma margem de 50% da altura do elemento pai*/
-    top: 20%;
+    top: 0%;
     /*Desloca a posição do elemento 50% de sua altura para cima (dando o efeito de centralização)*/
-    transform: translateY(70%);
+    transform: translateY(0%);
 }
 
 .round-button {
@@ -42,24 +42,22 @@ html, body {
 
 }
 
-img {
-    max-width:250px;
-    max-height:250px;
-    width: auto;
-    height: auto;
-	top: 30px;
-}
 
-.logo{
- margin-left:13%;
- margin-bottom:7%;
-}
 
 
 #login-page-container .input-group-addon {
     background-color: rgb(2,1,53);
     border: none;
     color: white;
+}
+
+.logo {
+    max-width:200px;
+    max-height:200px;
+    width: auto;
+    height: auto;
+	top: 0px;
+    
 }
 
 

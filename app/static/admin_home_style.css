@@ -1,5 +1,5 @@
 body {
-    background-color: #22c595;
+    background-color:rgb(255,252,212);
 }
 
 html, body {
@@ -10,9 +10,18 @@ html, body {
 h4 {
     color: grey;
     font-family: "Segoe UI";
-    margin: 25px;
+    margin: px;
     padding: 5px;
 	margin-left: 250px;
+}
+
+h3 {
+    color: grey;
+    font-family: "Segoe UI";
+    margin: px;
+    padding: 5px;
+	margin-left: 250px;
+    fonte-size:20%;
 }
 
 #fundo-branco {
@@ -29,20 +38,27 @@ h4 {
 .round-button {
     outline: none;
     border: none;
-    border-radius: 8px;
-    background-color: #18a178;
+    border-radius: 100px;
+    background-color: rgb(2,1,53);
     color: white;
-    width: 25%;
-    height: 40px;
-    margin-top: 25px;
-    margin-right: 40px;
-    transform: translateY(300%)
+    width: 15%;
+    height: 35px;
+    transform: translatex(560%)
 }
 
 img {
-    max-width:200px;
-    max-height:150px;
+    max-width:250px;
+    max-height:250px;
     width: auto;
     height: auto;
-	top: 100px;
+	top: 0px;
+}
+
+.logo {
+    max-width:200px;
+    max-height:200px;
+    width: auto;
+    height: auto;
+	top: 0px;
+    transform: translateY(120%)
 }

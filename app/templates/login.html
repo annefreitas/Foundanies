@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block styles %}
 <link rel="stylesheet" href="{{ url_for('static', filename='login_style.css') }}">
 {% endblock %}
@@ -23,7 +22,7 @@
                 {% endif %}
             {% endwith %}
             
-            <img src="https://i.imgur.com/BZ56eUI.png">
+            <img class="logo" src="https://i.imgur.com/BZ56eUI.png">
             <form action="login" method="post">
                 <!-- Necessário para funcionamento do CSRF -->
                 {{form.hidden_tag()}}

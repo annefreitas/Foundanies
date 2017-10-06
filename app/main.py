@@ -1,16 +1,17 @@
-from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
+from flask import Flask, render_template, flash, redirect, url_for, session, request, logging, send_from_directory
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 from functools import wraps
 from .forms import *
 from .classes import Criptografador
 from flask_mysqldb import MySQL
-from .db_interface import Zelda
+from .db_interface import foundanies
 from .usuario import Usuario
+import os
 
 from app import app
 
-
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 # Config MySQL
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
@@ -18,7 +19,7 @@ app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'foundanies'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # init MYSQL
-db = Zelda(app)
+db = foundanies(app)
 
 
 # Index
@@ -56,6 +57,38 @@ def login():
 
     return render_template('login.html', form=form)
 
+@app.route("/up")
+def up():
+    return render_template("upload.html")
+
+@app.route("/upload", methods=["POST"])
+def upload():
+    target = os.path.join(APP_ROOT, 'images/')
+    print(target)
+    if not os.path.isdir(target):
+            os.mkdir(target)
+    else:
+        print("Couldn't create upload directory: {}".format(target))
+    print(request.files.getlist("file"))
+    for upload in request.files.getlist("file"):
+        print(upload)
+        print("{} is the file name".format(upload.filename))
+        filename = upload.filename
+        destination = "/".join([target, filename])
+        print ("Accept incoming file:", filename)
+        print ("Save it to:", destination)
+        upload.save(destination)
+    if (session['user_login'] == ""):
+        return redirect(url_for('index'))
+    usuarios = db.get_usuarios_logados()
+
+    # return send_from_directory("images", filename, as_attachment=True)
+    return redirect(url_for('admin_home'))
+
+@app.route('/upload/<filename>')
+def send_image(filename):
+    return send_from_directory("images", filename)
+
 
 @app.route('/logout/')
 def logout():
@@ -72,7 +105,8 @@ def admin_home():
     usuarios = db.get_usuarios_logados()
     if(session['user_login'] == ""):
         return redirect(url_for('index'))
-    return render_template('admin_home.html', usuarios=usuarios)
+    image_names = os.listdir('./app/images')
+    return render_template('admin_home.html', usuarios=usuarios,image_names=image_names)
 
 
 @app.route('/usuario')
