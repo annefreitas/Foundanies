@@ -32,6 +32,12 @@ def index():
 # User login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if session['user_login'] != '':
+        session.pop('username', None)
+        user_login = session.get('user_login', None)
+        session['user_login'] = ''
+        db.set_logado_false(user_login)
+
     form = LoginForm()
     if form.validate_on_submit():
         session['user_login'] = form.login.data
@@ -63,7 +69,7 @@ def logout():
 @app.route('/admin_home')
 def admin_home():
     form = CadastraUsuarioForm()
-    usuarios = db.get_usuarios()
+    usuarios = db.get_usuarios_logados()
     if(session['user_login'] == ""):
         return redirect(url_for('index'))
     return render_template('admin_home.html', usuarios=usuarios)
@@ -81,6 +87,7 @@ def usuario_listar():
 def usuario_criar():
     form = CadastraUsuarioForm()
     if form.validate_on_submit():
+
         usuario = Usuario(
     nome=form.usuario_nome.data,
     login=form.usuario_login.data,
@@ -90,7 +97,7 @@ def usuario_criar():
 
         db.cadastra_usuario(usuario)
 
-        return redirect(url_for('login'))
+        return redirect(url_for('index'))
     else:
         flash_errors(form)
         return render_template('usuario_criar.html', form=form)

@@ -65,7 +65,7 @@ class Zelda:
 
     def get_usuarios_logados(self):
         data = self.execute_query("select * from usuario\
-            where usuario_logado = 1")
+            where usuario_logado = 0")
         usuarios = []
         for u in data:
             usuario = Usuario(
