@@ -33,11 +33,6 @@ def index():
 # User login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if session['user_login'] != '':
-        session.pop('username', None)
-        user_login = session.get('user_login', None)
-        session['user_login'] = ''
-        db.set_logado_false(user_login)
 
     form = LoginForm()
     if form.validate_on_submit():
