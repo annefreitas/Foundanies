@@ -1,55 +1,67 @@
-﻿{% extends "header.html" %}
+{% extends "header.html" %}
 
 {% block styles %}
-    {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static', filename='crud_style.css')}}">
+    <!-- CSS personalizado da página -->
+    <link rel="stylesheet" href="{{url_for('static', filename='usuario_crud_style.css')}}">
 {% endblock %}
 
 {% block content %}
 
-
-{% with messages = get_flashed_messages() %}
-    {% if messages %}
-        <ul>
-        {% for message in messages %}
-            <li>{{ message }} </li>
-        {% endfor %}
-        </ul>
-    {% endif %}
-{% endwith %}
-
-<div class="container">
-    <div class="row mt-5">
-        <div class="col-11 col-md-7 col-lg-5 mx-auto">
-            <h2>Cadastrar novo usuário</h2>
-            
-            <form  action="" class="form" method="POST">
+<body>
+  {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          <ul>
+          {% for message in messages %}
+              <li>{{ message }} </li>
+          {% endfor %}
+          </ul>
+      {% endif %}
+  {% endwith %}
+    <div class="container" id="login-page-container">
+      <div class="row section">
+         <div class="col-xs-10 col-xs-push-1">
+            <h2><b>Cadastro de Usuário</b></h2>
+         <form class="form" action="" method="post">
                 {{form.hidden_tag()}}
-
-                <div class="md-form mt-3">
-                    <label for="login-input">Login do Usuário</label>
-                    {{form.usuario_login(class_='form-control', id='login-input')}}
-                </div>
-
-                <div class="md-form">
-                    <label for="password-input">Senha</label>
-                    {{form.usuario_senha(class_='form-control', id='password-input')}}
-                </div>
-
-		
-              
-        
-		  <label>Foto de Perfil</label>
-                    <div class="md-form">
-                        {{ form.file }}
+                  <div class="row">
+					 <div class="col-xs-12 col-md-12">
+                        <div class="form-group">
+                           <div class="input-group">
+                              <label><h4><b>Nome do Usuário</b></h4></label>
+                                {{form.usuario_nome(class_='form-control')}}
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-xs-12 col-md-12">
+                        <div class="form-group">
+                           <div class="input-group">
+                              <label><h4><b>Login do Usuário</b></h4></label>
+                                {{form.usuario_login(class_='form-control')}}
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-xs-11 col-md-11">
+                        <div class="form-group">
+                           <div class="input-group">
+                              <label><h4><b>Senha do Usuário</b></h4></label>
+                                {{form.usuario_senha(class_='form-control')}}
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                 
+                  <div class="row section">
+                    <div class="col-xs-12 col-md-0"></div>
+                    <div class="col-xs-12 col-md-4">
+                      <a href="{{url_for('login')}}"><button class="round-button" type="button">CANCELAR</button></a>
                     </div>
-                <button type="submit" class="btn btn-success">Cadastrar</button> 
-                <a href="{{url_for('login')}}">
-                    <button type="button" class="btn btn-default">Cancelar</button>
-                </a>
-            </form>
-        </div>
+                    <div class="col-xs-12 col-md-4">
+                      <button class="round-button" type="submit">CADASTRAR</button>
+                    </div>
+                  </div>
+         </form>
+         </div>
+      </div>
     </div>
-</div>
 
 {% endblock %}

@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -6,40 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% if title %}
-    <title>{{ title }} | Foundanies</title>
+    <title>{{ title }} - Foundanies</title>
     {% else %}
     <title>Foundanies</title>
     {% endif %}
 
-    <!-- CSS do Bootstrap e MDB -->
-    <link href="{{url_for('static', filename='mdb-free/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{url_for('static', filename='mdb-free/css/mdb.min.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  
+    <!-- CSS do Bootstrap -->
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <link href="{{url_for('static',filename='global.css')}}" rel="stylesheet">
 
-    <!--CSS personalizado dos templates-->
-    {% block styles %}
-    {% endblock %}
+    {% block styles %}{% endblock %}
 
     <!-- Visitem: http://getbootstrap.com/docs/3.3/components/ para conhecer os componentes do Bootstrap-->
   </head>
-  <body id="main-body">
-    <!--Header-->
-    {% block header %}{% endblock %}
+  <body>
+    <div class="container">
+        {% block header %}{% endblock %}
 
-    <!--Código principal aqui -->
-    {% block content %}{% endblock %}
+        <!--Início do código principal aqui -->
+        {% block content %}{% endblock %}
+        <!--Final do código principal aqui-->
+    </div>
 
-    <!--Footer-->
-    {% block footer %}{% endblock %}
-
-    <!-- JS necessário para MDB -->
-    <script src="{{url_for('static', filename='mdb-free/js/jquery-3.2.1.min.js')}}"></script>
-    <script src="{{url_for('static', filename='mdb-free/js/popper.min.js')}}"></script>
-    <script src="{{url_for('static', filename='mdb-free/js/bootstrap.min.js')}}"></script>
-    <script src="{{url_for('static', filename='mdb-free/js/mdb.min.js')}}"></script>
+    <!-- jQuery (necessário para os plugins JavaScript do Bootstrap) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Inclua todos os plugins compilados (abaixo) ou inclua arquivos individuais conforme necessário -->
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Bloco onde scripts personalizados dos templates serão utilizados -->
     {% block scripts %}{% endblock %}
