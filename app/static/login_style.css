@@ -1,65 +1,94 @@
-﻿
-body {
-    background-color: rgb(255,252,212);
+﻿#main-body {
+    /* Coloque aqui a altura do footer */
+    padding-bottom: 55px !important;
+
+    background-color: white;
+    height: 100%;
+    overflow: auto;
 }
 
-html, body {
-    /*Só pra ter certeza que o html e o body estão cobrindo toda a tela*/
-    width: 100%;
+html {
+    display: block;
+}
+
+/******** Versão Desktop da tela ********/
+#uea-logo {
+    height: 75px;
+}
+
+.container-fluid {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+
+    /* Coloque aqui a altura do footer */
+    bottom: 55px;
+}
+
+.container-fluid > .row {
     height: 100%;
 }
 
-#login-page-container {
-    /*Pra fazer uma div interna centralizar na altura, a div externa deve cobrir toda a altura onde se quer centralizar (nesse caso, toda a altura da tela)*/
+#main-body {
+    /* Ajuste aqui a altura mínima para o conteúdo da versão desktop da tela */
+    min-height: 400px;
+}
+.btn-cadastrar{
+    background-color: #00C851;
+	
+}
+
+#left-content, #right-content, #right-content > .row {
     height: 100%;
 }
 
-#central-content {
-    position: relative;
-    /*Uma margem de 50% da altura do elemento pai*/
-    top: 50%;
-    /*Desloca a posição do elemento 50% de sua altura para cima (dando o efeito de centralização)*/
-    transform: translateY(-50%);
+#left-content .row {
+    margin-right: 15px;
 }
 
-#central-contentup {
-    position: relative;
-    /*Uma margem de 50% da altura do elemento pai*/
-    top: 20%;
-    /*Desloca a posição do elemento 50% de sua altura para cima (dando o efeito de centralização)*/
-    transform: translateY(70%);
+#triangulo {
+    position: absolute;
+    right: 0;
+    width: 35px;
 }
 
-.round-button {
-    /*Retira as bordas padrão do botão html*/
-    outline: none;
-    border-radius: 100px;
-    /*background-color: rgb(2,1,53);*/
-    background-color: rgb(2,1,53);
-    color: white;
-    width: 100%;
-    height: 40px;
+/******* Versão Mobile da tela *********/
 
+/* Para telas sm ou menor */
+@media (max-width: 767px) {
+    #uea-logo {
+        height: 35px;
+    }
+
+    #main-body {    
+        /* Ajuste aqui a altura mínima para o conteúdo da versão mobile da tela */
+        min-height: 495px;
+    }
+
+    .container-fluid {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .container-fluid > .row {
+        height: auto;
+    }
+
+    #left-content {
+        height: 50px;
+    }
+
+    #left-content .row {
+        margin-right: -15px;
+    }
+
+    #triangulo {
+        display: none;
+    }
+
+    #right-content {
+        height: auto;
+    }
 }
-
-img {
-    max-width:250px;
-    max-height:250px;
-    width: auto;
-    height: auto;
-	top: 30px;
-}
-
-.logo{
- margin-left:13%;
- margin-bottom:7%;
-}
-
-
-#login-page-container .input-group-addon {
-    background-color: rgb(2,1,53);
-    border: none;
-    color: white;
-}
-
-

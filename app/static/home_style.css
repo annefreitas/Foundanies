@@ -1,0 +1,19 @@
+#user-img {
+    border-radius: 50%;
+    max-width: 100px;
+}
+
+.card {
+    width: 100%;
+    max-width: 250px;
+}
+
+#main-body .card-profile-image {
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+}
+
+#home-main-div {
+    padding-top: 5rem;
+}

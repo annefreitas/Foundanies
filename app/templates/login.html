@@ -1,49 +1,105 @@
 {% extends "base.html" %}
+
 {% block styles %}
-<link rel="stylesheet" href="{{ url_for('static', filename='login_style.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='footer.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='login_style.css') }}">
 {% endblock %}
 
 {% block content %}
+<div class="container-fluid">
+    <div class="row">
 
-<div class="container" id="login-page-container">
-    <div class="row" id="central-content">
-        <!-- Define a largura das colunas pra cada largura de tela -->
-		
-        <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-1 col-md-4 col-md-push-4">
-        
-            <!-- Use esse trecho para exibir mensagens flashadas -->
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    <ul>
-                    {% for message in messages %}
-                        <li>{{ message }} </li>
-                    {% endfor %}
-                    </ul>
-                {% endif %}
-            {% endwith %}
-            
-            <img class="logo" src="https://i.imgur.com/BZ56eUI.png">
-            <form action="login" method="post">
-                <!-- Necessário para funcionamento do CSRF -->
-                {{form.hidden_tag()}}
-                <div class="form-group input-group">
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                    </span>
-                    {{form.login(class_='form-control',placeholder='Nome de Usuário')}} 
+        <!-- Conteúdo da esquerda -->
+        <div class="col-12 col-md-6" id="left-content">
+            <div class="row align-items-center h-100 uea-light">
+                <div class="col text-center">
+                    <img src="{{url_for('static', filename='assets/logo-uea-white.png')}}" id="uea-logo">
                 </div>
+
+                <!-- Triângulo -->
+                <div id="triangulo">
+                    <svg height="100" width="40" fill="#22c595">
+                        <path d="M0 0 L40 50 L0 100 z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conteúdo da direita (Login) -->
+        <div class="col" id="right-content">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-11 col-sm-8 col-md-10 col-lg-8">
+                    <!-- Use esse trecho para exibir mensagens flashadas -->
+                    <div>
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        <ul>
+                            {% for message in messages %}
+                            <li>{{ message }} </li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                        {% endwith %}
+                    </div>
                     
-                <div class="form-group input-group">
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-                    </span>
-                    {{form.senha(class_='form-control',placeholder='Senha')}}                
+                    <div class="card uea-light mt-4 mt-md-0">
+                        <div class="card-body">
+                            <h2 class="card-title white-fg">Login</h2>
+
+                            <form class="form" action="{{url_for('login')}}" method="post">
+                                <!-- Necessário para funcionamento do CSRF -->
+                                {{form.hidden_tag()}}
+                                
+                                <label class="white-fg" for="email-input">Nome de Usuário</label>
+                                <div class="md-form">
+                                    {{form.login(class_='white-bg', id='email-input')}}
+                                </div>
+                                
+                                <label class="white-fg" for="password-input">Senha</label>
+                                <div class="md-form mb-3">
+                                    {{form.senha(class_='white-bg', id='password-input')}}
+                                </div>
+                                <button class="btn btn-success" id="wrapper" type="submit">LOGIN</button>
+								<a href="{{url_for('usuario_cadastrar')}}" id="wrapper" class="btn btn-cadastrar" >Cadastre-se</a>
+                            </form>
+								
+                        </div>
+                    </div>
                 </div>
-                <button class="round-button" id="wrapper" type="submit">LOGIN</button>
-				
-            </form>
-			<a href="/cadastrar"><button class="round-button">CADASTRAR</button></a>
+            </div>
         </div>
     </div>
 </div>
+
+
+
+
+<div id="footer" class="uea-dark">
+    <div class="container">
+        <p class="text-right mt-1">Site desenvolvido pelos alunos de MPS 2017/2</p>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $('#form_signup').on("submit", function(event){ 
+            
+            $.post( $('#form_signup').attr('action'),
+                    $('#form_signup').serialize(),
+                    function(data) {
+                        // Use este data para exibir as respostas do servidor ao usuário
+                        console.log(data);
+                    },
+                    'json');
+
+            event.preventDefault();
+        });
+    });
+</script>
 {% endblock %}

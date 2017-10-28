@@ -1,0 +1,164 @@
+#insert usuarios
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ( 'andre', 'andre123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('andrea', 'andrea123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('antonio', 'antonio123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('cassio', 'cassio123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('charles', 'charles123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('clairon', 'clairon123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('claudio', 'claudio123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('cleinaldo', 'cleinaldo123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('cleto', 'cleto123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('cristine', 'cristine123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('danielle', 'danielle123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('eduardo', 'eduardo123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('elisabete', 'elisabete123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('emanuel', 'emanuel123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('fabian', 'fabian123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('felicien', 'felicien123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('gilberto', 'gilberto123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('helio', 'helio123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('ingrid', 'ingrid123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('jamile', 'jamile123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('joao', 'joao123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('jorge.b', 'jorge.b123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('jorge.p', 'jorge.p123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('jose.a', 'jose.a123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('jose.l', 'jose.l123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('jozias', 'jozias123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('jucimar', 'jucimar123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('luciano', 'luciano123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('marcia', 'marcia123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ( 'mario', 'mario123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('nadja', 'nadja123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('odwald', 'odwald123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('orlem', 'orlem123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('raimundo', 'raimundo123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('ricardo', 'ricardo123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('roberto', 'roberto123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('rubelmar', 'rubelmar123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('samara', 'samara123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('sergio', 'sergio123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('ubirajara', 'ubirajara123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('walter', 'walter123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('ana.c', 'ana.c123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('anderson', 'anderson123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('araci', 'araci123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('conceicao', 'conceicao123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('eliane', 'eliane123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('jeane', 'jeane123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('joelma', 'joelma123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('lizete', 'lizete123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('lucilene', 'lucilene123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('robson', 'robson123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('ruan', 'ruan123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('sandy', 'sandy123');
+
+INSERT INTO usuario(usuario_login, usuario_senha) VALUES
+ ('willem', 'willem123');
+
