@@ -10,7 +10,7 @@ chardet==2.2.1
 colorama==0.2.5
 command-not-found==0.3
 decorator==3.4.0
-html5lib==0.999
+html5lib==0.999999999
 ipython==1.2.1
 itsdangerous==0.22
 language-selector==0.1
