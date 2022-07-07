@@ -22,7 +22,7 @@ pycurl==7.19.3
 pygobject==3.12.0
 pyinotify==0.9.4
 python-apt==0.9.3.5ubuntu2
-requests==2.2.1
+requests==2.20.0
 simplegeneric==0.8.1
 six==1.5.2
 ufw==0.34-rc-0ubuntu2
